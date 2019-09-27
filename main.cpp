@@ -32,12 +32,15 @@ int sumaRecursiva(int arr[],int tam){
     }
 }
 void invertirRecursiva(int arr[],int x,int y){
-    if(x>y){
+    if(tam==1){
+        return arr[0];
+    }
+    else{
         int a = arr[x];
         arr[x]= arr[y];
         arr[y]= a;
-        return invertirRecursiva(arr,++x,--y);
-}
+        return  invertirRecursiva(arr,x++,y--);
+    }    
 }
 int main()
 {
