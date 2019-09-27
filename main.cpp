@@ -31,15 +31,13 @@ int sumaRecursiva(int arr[],int tam){
         return arr[tam-1]+sumaRecursiva(arr,tam-1);
     }
 }
-int invertirRecursiva(int arr[],int tam){
-    if(tam==1){
-        return arr[0];
-    }
-    else{
-        int a = arr[0];
-        arr[0]= arr[tam-1];
+void invertirRecursiva(int arr[],int tam, int i=0){
+    if(i<tam){
+        int a = arr[i];
+        arr[i] =arr[tam-1];
         arr[tam-1]= a;
-        return  arr[tam-1] + invertirRecursiva(arr,tam-1);
+
+        invertirRecursiva(arr,--tam,++i);
     }
 }
 int main()
