@@ -31,31 +31,31 @@ int sumaRecursiva(int arr[],int tam){
         return arr[tam-1]+sumaRecursiva(arr,tam-1);
     }
 }
-void invertirRecursiva(int arr[],int x,int y){
+int invertirRecursiva(int arr[],int tam){
     if(tam==1){
         return arr[0];
     }
     else{
-        int a = arr[x];
-        arr[x]= arr[y];
-        arr[y]= a;
-        return  invertirRecursiva(arr,x++,y--);
-    }    
+        int a = arr[0];
+        arr[0]= arr[tam-1];
+        arr[tam-1]= a;
+        return  arr[tam-1] + invertirRecursiva(arr,tam-1);
+    }
 }
 int main()
 {
-    int x[]={2,3,4,5};
+    int x[]={1,2,3,4,5};
 
-    imprimir(x,4);
+    imprimir(x,5);
     cout << endl << "La suma de los elementos es: " << suma(x,3) <<endl ;
-    invertir(x,4);
-    imprimir(x,4);
+    invertir(x,5);
+    imprimir(x,5);
 
-    cout << sumaRecursiva(x,4);
+    cout << sumaRecursiva(x,5);
 
-    //invertirRecursiva(x,2,5);
+    invertirRecursiva(x,5);
     cout << endl ;
-    imprimir(x,4);
+    imprimir(x,5);
 
     return 0;
 }
